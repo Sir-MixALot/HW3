@@ -23,6 +23,8 @@
                 }
             }
             ?>
+            <br>
+            <a href="note.php">Create new note</a>
         </div>
         </div>
     </body>

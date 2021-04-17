@@ -11,13 +11,8 @@ if ($page < 1) {
     exit('The requested page does not exist!');
 }
 
-$sql_1 = 'SELECT COUNT(*) FROM notes';
-if (!($result1 = $mysqli->query($sql_1))) {
-    throw new Exception($mysqli->error);
-}
+
 $itemsPerPage = 3;
-
-
 $firstNumber = ($page - 1) * $itemsPerPage;
 $sql_2 = 'SELECT * FROM notes';
     if (!($result = $mysqli->query($sql_2))) {
