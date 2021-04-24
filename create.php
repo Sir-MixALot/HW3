@@ -2,8 +2,8 @@
 include('config.php');
 header("Content-type: text/plain; charset=UTF-8");
 if (!empty($_POST['user']) && !empty($_POST['note'])){
-    $user = $_POST['user'];
-    $note = $_POST['note'];
+    $user = htmlspecialchars($_POST['user'],ENT_QUOTES, 'UTF-8');
+    $note = htmlspecialchars($_POST['note'],ENT_QUOTES, 'UTF-8');
 try{
     $mysqli = new mysqli(SERVER, USERNAME, PASSWORD, DBNAME);
     if($mysqli->connect_errno){
