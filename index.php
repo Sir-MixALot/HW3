@@ -1,17 +1,14 @@
 <?php
 include('config.php');
-
+$page = intval($_GET['page'] ?? 1);
+if ($page < 1) {
+    exit('The requested page does not exist!');
+}
 try{
     $mysqli = new mysqli(SERVER, USERNAME, PASSWORD, DBNAME);
     if($mysqli->connect_errno){
         throw new Exception($mysqli->connect_error);
     }
-$page = intval($_GET['page'] ?? 1);
-if ($page < 1) {
-    exit('The requested page does not exist!');
-}
-
-
 $itemsPerPage = 3;
 $firstNumber = ($page - 1) * $itemsPerPage;
 $sql_2 = 'SELECT * FROM notes';
